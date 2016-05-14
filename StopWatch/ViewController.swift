@@ -24,7 +24,7 @@ class ViewController: NSViewController {
     }
     
     func initTimer() {
-        timeText.stringValue = "00:00:00"
+        timeText.stringValue = "00:00:00.0"
         elapsedTime = 0
         tempElapsedTime = 0
     }
@@ -43,7 +43,7 @@ class ViewController: NSViewController {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(name: "GMT")
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm:ss.S"
         
         timeText.stringValue = dateFormatter.stringFromDate(date)
     }
@@ -57,7 +57,7 @@ class ViewController: NSViewController {
     }
     
     func startTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
     
     func clickStop() {
